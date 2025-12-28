@@ -101,7 +101,7 @@ def show_completed() -> list:
     conn.close()
     return tasks
 
-def delete()
+def delete_task():
 
 
 if __name__ == "__main__":
