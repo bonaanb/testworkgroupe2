@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>✅ Выполненные задачи</h1>
+
+<ul>
+    {% if completed %}
+        {% for task_id, task_name in completed %}
+            <li class="task-text">{{ task_name }}</li>
+        {% endfor %}
+    {% else %}
+        <li class="empty">Пока нет выполненных задач 😊</li>
+    {% endif %}
+</ul>
+
+<a href="/" class="link-btn">⬅️ Назад</a>
+{% endblock %}

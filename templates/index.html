@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>📝 Список дел</h1>
+
+<form method="post">
+    <input name="task" placeholder="Например: сделать проект" required>
+    <button type="submit">➕ Добавить</button>
+</form>
+
+<ul>
+    {% if tasks %}
+        {% for task_id, task_name in tasks %}
+            <li>
+                <span class="task-text">{{ task_name }}</span>
+                <a href="/complete/{{ task_id }}" class="complete-btn">✅</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li class="empty">Пока задач нет 😊</li>
+    {% endif %}
+</ul>
+
+<a href="/completed" class="link-btn">➡️ Выполненные</a>
+{% endblock %}
