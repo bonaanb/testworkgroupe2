@@ -7,7 +7,7 @@
 /* --- Фон --- */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: #0b0b0b; /* очень темный фон */
+    background: #0b0b0b;
     color: #f2f2f2;
     min-height: 100vh;
     display: flex;
@@ -23,19 +23,20 @@ body {
     min-height: 85vh;
     margin: 0 auto;
     padding: 60px 50px;
-    background: #1a1a1a; /* темная подложка */
+    background: #1a1a1a;
     border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2); /* красноватое свечение */
+    box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2);
     display: flex;
     flex-direction: column;
     gap: 30px;
+    align-items: center; /* центрируем дочерние элементы горизонтально */
 }
 
 /* --- Заголовок --- */
 h1 {
     text-align: center;
     font-weight: 700;
-    color: #ff4500; /* ярко-оранжевый */
+    color: #ff4500;
     font-size: 2.5rem;
     margin-bottom: 40px;
 }
@@ -47,6 +48,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 /* --- Элемент списка --- */
@@ -55,15 +57,15 @@ li {
     align-items: center;
     justify-content: space-between;
     padding: 25px 30px;
-    background: #2b2b2b; /* темно-серый */
-    border-left: 6px solid #ff8c00; /* оранжевый акцент */
+    background: #2b2b2b;
+    border-left: 6px solid #ff8c00;
     border-radius: 20px;
     font-size: 1.2rem;
     transition: all 0.2s ease;
 }
 
 li:hover {
-    background: #3a1f0b; /* теплый темный оттенок при ховере */
+    background: #3a1f0b;
     transform: translateX(4px);
     box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
 }
@@ -71,40 +73,42 @@ li:hover {
 /* --- Текст задачи --- */
 .task-text {
     flex: 1;
-    color: #ffd700; /* золотистый текст */
+    color: #ffd700;
 }
 
-/* --- Строка ввода --- */
+/* --- Строка ввода (по центру) --- */
 .input-row {
     display: flex;
     gap: 16px;
     margin-bottom: 30px;
+    justify-content: center; /* выравнивание элементов */
+    width: auto;             /* ширина под содержимое */
 }
 
+/* --- Input --- */
 .input-str {
-    flex: 1;
     padding: 22px 26px;
     font-size: 1.3rem;
-    border: 2px solid #ff8c00; /* оранжевый контур */
+    border: 2px solid #ff8c00;
     border-radius: 20px;
-    background: #2b2b2b; /* темный фон input */
-    color: #ffd700; /* золотой текст */
+    background: #2b2b2b;
+    color: #ffd700;
     outline: none;
     transition: all 0.25s ease;
 }
 
 .input-str:focus {
-    border-color: #ff4500; /* оранжево-красный при фокусе */
+    border-color: #ff4500;
     box-shadow: 0 0 12px rgba(255, 69, 0, 0.5);
 }
 
-/* --- Кнопка отправки --- */
+/* --- Кнопка --- */
 .submit-btn {
     padding: 22px 32px;
     font-size: 1.25rem;
     font-weight: 700;
     border-radius: 20px;
-    background: #ff4500; /* ярко-красная кнопка */
+    background: #ff4500;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -112,7 +116,7 @@ li:hover {
 }
 
 .submit-btn:hover {
-    background: #ff8c00; /* оранжевый при наведении */
+    background: #ff8c00;
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
 }
@@ -130,9 +134,8 @@ li:hover {
     transition: all 0.25s ease;
 }
 
-/* COMPLETE */
 .complete-btn {
-    background: #ffa500; /* мягкий оранжевый */
+    background: #ffa500;
     color: #1a1a1a;
 }
 
@@ -141,18 +144,16 @@ li:hover {
     transform: scale(1.05);
 }
 
-/* DELETE */
 .delete-btn {
     background: #ff4500;
     color: #fff;
 }
 
 .delete-btn:hover {
-    background: #ff6347; /* томатный оттенок */
+    background: #ff6347;
     transform: scale(1.05);
 }
 
-/* LINK BUTTON */
 .link-btn {
     background: transparent;
     color: #ffd700;
@@ -165,8 +166,9 @@ li:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
+
 li.completed span {
-    text-decoration: line-through; /* зачёркнутый текст */
-    color: #7c7c7c;                /* серый цвет */
-    opacity: 0.7;                   /* чуть прозрачнее */
+    text-decoration: line-through;
+    color: #7c7c7c;
+    opacity: 0.7;
 }
