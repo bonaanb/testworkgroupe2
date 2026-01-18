@@ -1,229 +1,118 @@
-/* RESET */
+/* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-/* BACKGROUND */
+/* Фон */
 body {
-  font-family: "Orbitron", "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, #ff00cc33, transparent 40%),
-    radial-gradient(circle at 80% 30%, #00ffff33, transparent 40%),
-    linear-gradient(135deg, #05010a, #0a0014);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #eaffff;
-  overflow: hidden;
+    font-family: "Arial Black", Impact, sans-serif;
+    background: #0b0b0b;
+    color: #f2f2f2;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 0;
 }
 
-/* MAIN CONTAINER */
+/* Контейнер */
 .container {
-  width: 440px;
-  padding: 42px 46px;
-  background: rgba(10, 5, 20, 0.75);
-  backdrop-filter: blur(18px) saturate(140%);
-  border-radius: 22px;
-  border: 1px solid rgba(0, 255, 255, 0.25);
-  box-shadow:
-    0 0 25px #00ffff55,
-    0 0 60px #ff00cc33,
-    inset 0 0 25px #00ffff22;
-  position: relative;
-  animation: floatIn 0.8s ease;
+    max-width: 620px;
+    margin: auto;
+    padding: 28px;
+    background: #111;
+    border: 2px solid #e10600;
+    box-shadow: 0 0 0 4px #000, 0 0 30px rgba(225, 6, 0, 0.35);
 }
 
-/* NEON BORDER */
-.container::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 24px;
-  background: linear-gradient(120deg, #00ffff, #ff00cc, #00ffff);
-  z-index: -1;
-  filter: blur(18px);
-  opacity: 0.7;
-}
-
-/* TITLE */
+/* Заголовок */
 h1 {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-shadow: 0 0 8px #00ffff, 0 0 18px #ff00cc;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #ffffff;
 }
 
-/* FORM */
-form {
-  margin-bottom: 26px;
-}
-
-input {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(0, 255, 255, 0.35);
-  background: rgba(0, 0, 0, 0.55);
-  color: #eaffff;
-  font-size: 14px;
-  outline: none;
-  margin-bottom: 14px;
-  transition: 0.25s;
-}
-
-input::placeholder {
-  color: #6fffff99;
-}
-
-input:focus {
-  border-color: #ff00cc;
-  box-shadow: 0 0 12px #ff00cc88, inset 0 0 8px #00ffff44;
-}
-
-/* BUTTON */
-button {
-  width: 100%;
-  padding: 14px;
-  border-radius: 14px;
-  border: none;
-  background: linear-gradient(135deg, #00ffff, #ff00cc);
-  color: #05010a;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 18px #00ffff88, 0 0 32px #ff00cc55;
-}
-
-button:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 0 28px #00ffff, 0 0 48px #ff00cc;
-}
-
-/* LIST */
+/* Список */
 ul {
-  list-style: none;
-  margin-top: 11px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* TASK */
+/* Элемент */
 li {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 255, 0.12),
-    rgba(255, 0, 204, 0.12)
-  );
-  border: 1px solid rgba(0, 255, 255, 0.3);
-  padding: 14px 16px;
-  border-radius: 14px;
-  margin-bottom: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  animation: glitchFade 0.35s ease;
-  box-shadow: inset 0 0 12px #00ffff22;
-  transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    background: #151515;
+    border-left: 6px solid #e10600;
+    position: relative;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* “грязный” эффект */
+li::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    pointer-events: none;
 }
 
 li:hover {
-  transform: scale(1.015);
-  box-shadow: 0 0 18px #00ffff66;
+    background: #1c1c1c;
+    transform: translateX(4px);
 }
 
+/* Текст */
 .task-text {
-  max-width: 80%;
-  word-wrap: break-word;
-  text-shadow: 0 0 6px #00ffff88;
+    flex: 1;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* COMPLETE BTN */
+/* Кнопки */
+.complete-btn,
+.delete-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+/* COMPLETE */
 .complete-btn {
-  padding: 7px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-  text-decoration: none;
-  background: linear-gradient(135deg, #00ff88, #00ffaa);
-  color: #003322;
-  box-shadow: 0 0 12px #00ffaa99;
-  transition: 0.25s;
+    color: #000;
+    background: #f2f2f2;
 }
 
 .complete-btn:hover {
-  transform: scale(1.15);
+    background: #e10600;
+    color: #fff;
+    transform: skewX(-6deg);
 }
 
-/* COMPLETED TASK */
-.completed-task {
-  padding: 14px 16px;
-  border-radius: 14px;
-  margin-bottom: 14px;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 150, 0.15),
-    rgba(0, 180, 255, 0.15)
-  );
-  border: 1px solid rgba(0,255,180,0.35);
-  text-decoration: line-through;
-  color: #aaffcc;
-  box-shadow: inset 0 0 10px #00ffaa33;
+/* DELETE */
+.delete-btn {
+    color: #e10600;
+    background: transparent;
+    border-color: #e10600;
 }
 
-/* EMPTY */
-.empty {
-  text-align: center;
-  padding: 18px;
-  font-size: 13px;
-  color: #aaffff;
-  opacity: 0.75;
-  border: 1px dashed rgba(0,255,255,0.35);
-  border-radius: 14px;
-}
-
-/* LINK BTN */
-.link-btn {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 10px 18px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  color: #05010a;
-  background: linear-gradient(135deg, #00ffff, #7affff);
-  box-shadow: 0 0 14px #00ffff88;
-  transition: 0.25s;
-}
-
-.link-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* ANIMATIONS */
-@keyframes glitchFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.delete-btn:hover {
+    background: #e10600;
+    color: #000;
+    transform: skewX(6deg);
 }

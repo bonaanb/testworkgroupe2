@@ -4,7 +4,7 @@
 <h1>📝 Список дел</h1>
 
 <form method="post">
-    <input name="task" placeholder="Например: сделать проект" required>
+    <input name="task" placeholder="Например: постирать вещи" required>
     <button type="submit">➕ Добавить</button>
 </form>
 
@@ -14,6 +14,7 @@
             <li>
                 <span class="task-text">{{ task_name }}</span>
                 <a href="/complete/{{ task_id }}" class="complete-btn">✅</a>
+                <a href="/delete/{{ task_id }}" class="delete-btn">Удалить</a>
             </li>
         {% endfor %}
     {% else %}
