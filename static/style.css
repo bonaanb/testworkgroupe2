@@ -1,149 +1,173 @@
-/* Reset */
+/* --- Reset --- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Фон */
+/* --- Фон --- */
 body {
-    font-family: "Arial Black", Impact, sans-serif;
-    background: linear-gradient(120deg, #0b0b0b, #1a0000);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #0b0b0b; /* очень темный фон */
     color: #f2f2f2;
     min-height: 100vh;
-    padding: 40px 0;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
 }
 
-/* Контейнер */
+/* --- Контейнер --- */
 .container {
-    max-width: 650px;
-    margin: auto;
-    padding: 30px;
-    background: #111;
-    border: 3px solid;
-    border-image: linear-gradient(45deg, #e10600, #ff0080, #00ffff) 1;
-    box-shadow: 0 0 20px #e10600, 0 0 60px rgba(255, 0, 128, 0.5), 0 0 100px rgba(0, 255, 255, 0.2);
-    position: relative;
-    animation: pulse-border 3s infinite alternate;
+    width: 100%;
+    max-width: 900px;
+    min-height: 85vh;
+    margin: 0 auto;
+    padding: 60px 50px;
+    background: #1a1a1a; /* темная подложка */
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2); /* красноватое свечение */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-/* Заголовок */
+/* --- Заголовок --- */
 h1 {
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 35px;
-    font-size: 2em;
-    color: #fff;
-    text-shadow: 0 0 5px #e10600, 0 0 10px #ff0080, 0 0 20px #00ffff;
+    font-weight: 700;
+    color: #ff4500; /* ярко-оранжевый */
+    font-size: 2.5rem;
+    margin-bottom: 40px;
 }
 
-/* Анимация пульсации бордера */
-@keyframes pulse-border {
-    0% { box-shadow: 0 0 20px #e10600, 0 0 60px rgba(255, 0, 128, 0.5); }
-    50% { box-shadow: 0 0 40px #ff0080, 0 0 80px rgba(0, 255, 255, 0.7); }
-    100% { box-shadow: 0 0 20px #e10600, 0 0 60px rgba(255, 0, 128, 0.5); }
-}
-
-/* Список */
+/* --- Список задач --- */
 ul {
     list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Элемент */
+/* --- Элемент списка --- */
 li {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 18px;
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, #111, #1a0000);
-    border-left: 8px solid;
-    border-image: linear-gradient(45deg, #e10600, #ff0080, #00ffff) 1;
-    position: relative;
-    transition: all 0.3s ease;
-    overflow: hidden;
-    box-shadow: 0 0 5px rgba(255,255,255,0.1), 0 0 10px rgba(255,0,128,0.2);
-}
-
-/* “грязный” и анимированный эффект */
-li::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.04) 0px,
-        rgba(255, 255, 255, 0.04) 1px,
-        transparent 1px,
-        transparent 5px
-    );
-    pointer-events: none;
-    animation: shimmer 3s infinite linear;
-}
-
-@keyframes shimmer {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
+    justify-content: space-between;
+    padding: 25px 30px;
+    background: #2b2b2b; /* темно-серый */
+    border-left: 6px solid #ff8c00; /* оранжевый акцент */
+    border-radius: 20px;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
 }
 
 li:hover {
-    transform: translateX(6px) scale(1.02) rotateZ(-1deg);
-    background: linear-gradient(135deg, #1c0000, #33001a);
-    box-shadow: 0 0 15px #ff0080, 0 0 40px #00ffff, 0 0 60px #e10600;
+    background: #3a1f0b; /* теплый темный оттенок при ховере */
+    transform: translateX(4px);
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
 }
 
-/* Текст */
+/* --- Текст задачи --- */
 .task-text {
     flex: 1;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #fff;
-    text-shadow: 0 0 2px #ff0080, 0 0 4px #00ffff;
+    color: #ffd700; /* золотистый текст */
 }
 
-/* Кнопки */
-.complete-btn,
-.delete-btn {
-    padding: 8px 14px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: 2px solid transparent;
-    text-decoration: none;
-    transition: all 0.2s ease;
+/* --- Строка ввода --- */
+.input-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.input-str {
+    flex: 1;
+    padding: 22px 26px;
+    font-size: 1.3rem;
+    border: 2px solid #ff8c00; /* оранжевый контур */
+    border-radius: 20px;
+    background: #2b2b2b; /* темный фон input */
+    color: #ffd700; /* золотой текст */
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.input-str:focus {
+    border-color: #ff4500; /* оранжево-красный при фокусе */
+    box-shadow: 0 0 12px rgba(255, 69, 0, 0.5);
+}
+
+/* --- Кнопка отправки --- */
+.submit-btn {
+    padding: 22px 32px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 20px;
+    background: #ff4500; /* ярко-красная кнопка */
+    color: #fff;
+    border: none;
     cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.submit-btn:hover {
+    background: #ff8c00; /* оранжевый при наведении */
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
+}
+
+/* --- Кнопки внутри списка --- */
+.complete-btn,
+.delete-btn,
+.link-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
 }
 
 /* COMPLETE */
 .complete-btn {
-    color: #000;
-    background: linear-gradient(45deg, #f2f2f2, #ffe600, #00ffea);
-    border-radius: 4px;
-    box-shadow: 0 0 10px #ffe600, 0 0 20px #00ffea, 0 0 30px #f2f2f2;
+    background: #ffa500; /* мягкий оранжевый */
+    color: #1a1a1a;
 }
 
 .complete-btn:hover {
-    background: linear-gradient(45deg, #e10600, #ff0080, #00ffff);
-    color: #fff;
-    transform: skewX(-8deg) scale(1.05);
-    box-shadow: 0 0 15px #ff0080, 0 0 25px #00ffff, 0 0 35px #e10600;
+    background: #ff8c00;
+    transform: scale(1.05);
 }
 
 /* DELETE */
 .delete-btn {
-    color: #e10600;
-    background: linear-gradient(45deg, transparent, rgba(225,6,0,0.2));
-    border: 2px solid #e10600;
-    border-radius: 4px;
-    box-shadow: 0 0 5px #e10600, 0 0 10px rgba(255,0,0,0.3);
+    background: #ff4500;
+    color: #fff;
 }
 
 .delete-btn:hover {
-    background: linear-gradient(45deg, #e10600, #ff0080, #00ffff);
-    color: #000;
-    transform: skewX(8deg) scale(1.05);
-    box-shadow: 0 0 15px #ff0080, 0 0 25px #00ffff, 0 0 35px #e10600;
+    background: #ff6347; /* томатный оттенок */
+    transform: scale(1.05);
+}
+
+/* LINK BUTTON */
+.link-btn {
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+}
+
+.link-btn:hover {
+    background: #ffd700;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+li.completed span {
+    text-decoration: line-through; /* зачёркнутый текст */
+    color: #7c7c7c;                /* серый цвет */
+    opacity: 0.7;                   /* чуть прозрачнее */
 }
