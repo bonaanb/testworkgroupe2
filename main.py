@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from data import show_tasks, insert_task, delete_task, init_db, add_completed, show_completed, get_task_by_id
+from data import show_tasks, insert_task, delete_task_by_id, init_db, add_completed, show_completed, get_task_by_id
 
 
 app = Flask(__name__)
@@ -25,7 +25,7 @@ def complete(task_id):
     task = get_task_by_id(task_id)
     if task:
         add_completed(task[0])
-        delete_task(task_id)
+        delete_task_by_id(task_id)
     return redirect(url_for("index"))
 
 @app.route("/completed")

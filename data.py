@@ -67,7 +67,7 @@ def get_task_by_id(task_id: int):
     return task
 
 
-def delete_task(task_id: int) -> None:
+def delete_task_by_id(task_id: int) -> None:
     """Удалить задачу"""
     conn = sqlite3.connect(TASKS_DB)
     cursor = conn.cursor()
