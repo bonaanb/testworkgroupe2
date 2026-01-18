@@ -33,5 +33,10 @@ def completed_page():
     completed = show_completed()
     return render_template("completed.html", completed=completed)
 
+@app.route("/delete/<int:task_id>")
+def delete(task_id):
+    delete_task(task_id)
+    return redirect(url_for("index"))
+
 if __name__ == '__main__':
     app.run()
