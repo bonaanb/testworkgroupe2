@@ -12,7 +12,7 @@
 - ✅ Мини-инструкция в README
 
 ## Стек
-- Python 3.9
+- Python 3
 - Flask
 - SQLite
 - HTML / CSS
