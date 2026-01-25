@@ -95,6 +95,10 @@ def completed_page():
     completed = show_completed(session["user_id"])
     return render_template("completed.html", completed=completed)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # Возвращает шаблон 404.html и код 404
+    return render_template('404error.html'), 404
 
 @app.route("/delete/<int:task_id>")
 def delete(task_id):
