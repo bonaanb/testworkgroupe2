@@ -6,12 +6,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+<div class="container">
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
 {% if session.user_id %}
     <a href="/logout" class="link-btn">🚪 Выйти</a>
 {% endif %}
-<div class="container">
+
     {% block content %}{% endblock %}
+
 </div>
+
+
+
 
 
 </body>
