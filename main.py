@@ -33,5 +33,10 @@ def completed_page():
     completed = show_completed()
     return render_template("completed.html", completed=completed)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404error.html'), 404
+
+
 if __name__ == '__main__':
     app.run()
