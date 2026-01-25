@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from data import (
     init_db, show_tasks, insert_task, delete_task,
@@ -23,9 +23,10 @@ def register():
 
         try:
             create_user(username, password_hash)
+            flash("Регистрация прошла успешно ✅")
             return redirect(url_for("login"))
         except:
-            return "Пользователь уже существует"
+            flash("Пользователь уже существует ❌")
 
     return render_template("register.html")
 
@@ -42,7 +43,7 @@ def login():
             session["user_id"] = user[0]
             return redirect(url_for("index"))
 
-        return "Неверный логин или пароль"
+        flash("Неверный логин или пароль ❌")
 
     return render_template("login.html")
 
