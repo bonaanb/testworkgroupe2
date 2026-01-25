@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<div class="top-links">
+    <a href="{{ url_for('authors_page') }}" class="link-btn">👥 Авторы</a>
+    <a href="{{ url_for('logout') }}" class="link-btn">🚪 Выйти</a>
+</div>
+
 <h1>📝 Список дел</h1>
 
 <form method="post">

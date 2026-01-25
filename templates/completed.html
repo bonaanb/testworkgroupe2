@@ -1,16 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>✅ Выполненные</h1>
+<a href="{{ url_for('authors_page') }}">Авторы</a>
 
-<ul>
-    {% if completed %}
-        {% for task_id, task_name in completed %}
-            <li class="completed">
-                <span>{{ task_name }}</span>
-            </li>{% extends "base.html" %}
-
-{% block content %}
 <h1>✅ Выполненные</h1>
 
 <ul>
@@ -26,14 +18,4 @@
 </ul>
 
 <a href="/" class="link-btn">⬅️ Назад</a>
-
-{% endblock %}
-        {% endfor %}
-    {% else %}
-        <li class="empty">Пока нет выполненных задач 😊</li>
-    {% endif %}
-</ul>
-
-<a href="/" class="link-btn">⬅️ Назад</a>
-
 {% endblock %}
